@@ -1,6 +1,6 @@
 ---
 - name: Install docker
-  shell: "curl -fsSL get.docker.com -o get-docker.sh || sudo sh get-docker.sh"
+  shell: "curl -fsSL get.docker.com -o get-docker.sh || sh get-docker.sh"
 
 - name: Add user to group
-  shell: "sudo usermod -aG docker {{ ansible_user }} || newgrp docker"
+  shell: "usermod -aG docker {{ ansible_user }} || newgrp docker"
