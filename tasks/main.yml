@@ -3,9 +3,11 @@
   shell: "curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh"
   become: yes
 
-- name: Add user to group
-  shell: "usermod -aG docker {{ ansible_user }}"
-  become: yes
+- name: Add ansible to docker group
+  user:
+    name: '{{ ansible_user }}'
+    groups: docker
+    append: yes
 
 - name: Ensure group "docker" exists
   group:
