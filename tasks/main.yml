@@ -8,6 +8,7 @@
     name: '{{ ansible_user }}'
     groups: docker
     append: yes
+  become: yes
 
 - name: Ensure group "docker" exists
   group:
